@@ -1,7 +1,7 @@
 # matplot
 Python matplot sandbox
 
-# Setup environment
+### Setup environment
 
 ```
 pip install virtualenv
@@ -13,5 +13,15 @@ pip install -r requirements.txt
 (optional) pip freeze
 (optional) ls venv/lib/python3.7/site-packages/
 ```
+
+### Working  in the project
+
+```
+git status
+git add .
+git commit -m "prep requirements, initial files"
+git push 
+```
+
 
 
