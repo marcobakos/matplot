@@ -26,7 +26,20 @@ print(unique_elements)
 print(counts_elements)
 
 
-plt.hist(unique_elements, bins=[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65])
-# plt.hist(unique_elements)
-plt.title("Histogram - tst")
+#
+# plt.hist(unique_elements, bins=[0, 10, 20, 30, 40, 50, 60])
+# acertar essa escala.......
+#
+#
+
+# plt.title("Histogram - tst")
+# plt.show()
+
+x2 = unique_elements
+y2 = counts_elements
+
+plt.bar(x2, y2, color = 'r', align = 'center')
+plt.title('Bar graph')
+plt.ylabel('Y eixo')
+plt.xlabel('X eixo')
 plt.show()
