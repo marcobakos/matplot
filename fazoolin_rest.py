@@ -1,25 +1,25 @@
 class Menu:
-    '''
+    """
     Create a Menu Object
-    '''
+    """
     def __init__(self, name, items, start_time, end_time):
-        '''
+        """
         Args :
-        :param name: (Str) - menu Name
-        :param items: (dic) - Dictionary with ("offer": price)
+        :param name: (str) - menu Name
+        :param items: (dic) - Dictionary with ("purchase item": price)
         :param start_time: (int) - Time when it is open - Format 24 hs - ex. 10am = 1000
         :param end_time: (int) - Time when it is close - Format 24 hs - ex. 11pm = 2300
-        '''
+        """
         self.name = name
         self.items = items
         self.start_time = start_time
         self.end_time = end_time
 
     def __repr__(self):
-        '''
+        """
         Print the object
         :return: "Menu - {mn}, available from {st} to {et}."
-        '''
+        """
         self.representative_string = "Menu - {mn}, available from {st} to {et}.".\
             format(mn=self.name,
                    st=self.start_time,
@@ -28,11 +28,11 @@ class Menu:
         return self.representative_string
 
     def calculate_bill(self, purchased_items):
-        '''
+        """
         Calculate the bill
-        :param purchased_items: (str) - Offer purchased
+        :param purchased_items: (list) - List of Purchase items
         :return: (float) - Total value of the Bill
-        '''
+        """
         self.purchased_items = purchased_items
         total_price = 0
         for item in self.purchased_items:
@@ -41,31 +41,31 @@ class Menu:
 
 
 class Franchise:
-    '''
+    """
     Create a Franchise Object
-    '''
+    """
     def __init__(self, address, menus):
-        '''
+        """
         Args :
         :param address: (str) - Place address
-        :param menus: (class) - Menu Object (content all the information about the menu
-        '''
+        :param menus: (list) - List of Menus Object
+        """
         self.address = address
         self.menus = menus
 
     def __repr__(self):
-        '''
+        """
         Print the Place Address
-        :return: Place Address
-        '''
-        return self.address
+        :return: (str) - Place Address
+        """
+        return "Franchise Address - {fa}.".format(fa=self.address)
 
     def available_menus(self, time):
-        '''
+        """
         Check if the specific Menu is available in that time between start-time and end-time
         :param time: (int) - Format 24 hs - ex. 10am = 1000
         :return: (list) - With the Menu Names
-        '''
+        """
         available_menu = []
         for menu in self.menus:
             if time >= menu.start_time and time <= menu.end_time:
@@ -74,22 +74,23 @@ class Franchise:
 
 
 class Business:
-    '''
+    """
     Create a Business Object
-    '''
+    """
     def __init__(self, name, franchises):
-        '''
+        """
         Args :
         :param name: (str) - Place Name
-        :param franchises: (class) - Franchise Object
-        '''
+        :param franchises: (list) - list of Franchise Object
+        """
         self.name = name
         self.franchises = franchises
 
 
-'''
-Exec
-'''
+"""
+Execution
+"""
+
 brunch = Menu("brunch", {
     'pancakes': 7.50,
     'waffles': 9.00,
@@ -127,24 +128,24 @@ kids = Menu("Kids", {
     'apple juice': 3.00
     }, 1100, 2100)
 
-# print(brunch)
+print(brunch)
 
 bill = brunch.calculate_bill(['pancakes', 'home fries', 'coffee'])
-# print(str(bill))
+print(str(bill))
 
 bill2 = early_bird.calculate_bill(['salumeria plate', 'mushroom ravioli (vegan)'])
-# print(str(bill))
+print(str(bill2))
 
 
 flasship_store = Franchise("1232 West End Road", [brunch, early_bird, dinner, kids])
 
-# print(flasship_store)
+print("The flasship_store - ", flasship_store )
 
 new_installment = Franchise("12 East Mulberry Street", [brunch, early_bird, dinner, kids])
 
-# print(new_installment)
+print("The new_installment - ", new_installment)
 
-# print(flasship_store.available_menus(1700))
+print(flasship_store.available_menus(1700))
 
 basta = Business("Basta Fazoolin' with my Heart", [flasship_store, new_installment])
 
