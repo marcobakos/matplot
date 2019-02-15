@@ -46,7 +46,7 @@ class Menu:
         """
         offer = self.items.items()
         for k, v in offer:
-                print(k, " - $", v)
+                print("Item --> ", k, " - $", v)
 
 
 class Franchise:
@@ -113,7 +113,7 @@ brunch = Menu("brunch", {
     }, 1100, 1600)
 
 
-print(brunch.print_menu())
+print("Print brunch_menu -->", brunch.print_menu())
 
 early_bird = Menu("Early-bird Dinners", {
     'salumeria plate': 8.00,
@@ -140,24 +140,24 @@ kids = Menu("Kids", {
     'apple juice': 3.00
     }, 1100, 2100)
 
-print(brunch)
+print("Print brunch --> ", brunch)
 
 bill = brunch.calculate_bill(['pancakes', 'home fries', 'coffee'])
-print(str(bill))
+print("Print bill --> ", str(bill))
 
 bill2 = early_bird.calculate_bill(['salumeria plate', 'mushroom ravioli (vegan)'])
-print(str(bill2))
+print("Print bill --> ",str(bill2))
 
 
 flasship_store = Franchise("1232 West End Road", [brunch, early_bird, dinner, kids])
 
-print("The flasship_store - ", flasship_store )
+print("The flasship_store --> ", flasship_store )
 
 new_installment = Franchise("12 East Mulberry Street", [brunch, early_bird, dinner, kids])
 
-print("The new_installment - ", new_installment)
+print("The new_installment --> ", new_installment)
 
-print(flasship_store.available_menus(1700))
+print("Print flasship store --> ", flasship_store.available_menus(1700))
 
 basta = Business("Basta Fazoolin' with my Heart", [flasship_store, new_installment])
 
@@ -179,10 +179,12 @@ arepas_place = Franchise('189 Fitzgerald Avenue', [arepas_menu, kids])
 
 arepas = Business("Take a' Arepa", [arepas_place])
 
-print("Arepas information : ", arepas.franchises[0].menus[0])
+print("Arepas information --> ", arepas.franchises[0].menus[0])
 
 
-print(arepas_menu.print_menu())
+print("Print Arepas --> ", arepas_menu.items.
+
+
 
 
 
