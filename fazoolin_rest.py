@@ -39,6 +39,15 @@ class Menu:
             total_price += self.items[item]
         return total_price
 
+    def print_menu(self):
+        """
+        Print Menu Items
+        :return: (tuple) - purchase item , $ price
+        """
+        offer = self.items.items()
+        for k, v in offer:
+                print(k, " - $", v)
+
 
 class Franchise:
     """
@@ -103,6 +112,9 @@ brunch = Menu("brunch", {
     'orange juice': 3.50
     }, 1100, 1600)
 
+
+print(brunch.print_menu())
+
 early_bird = Menu("Early-bird Dinners", {
     'salumeria plate': 8.00,
     'salad and breadsticks (serves 2, no refills)': 14.00,
@@ -162,10 +174,16 @@ arepas_items = {
 arepas_menu = Menu("Take a' Arepa", arepas_items, 1000, 2000)
 
 
-arepas_place = Franchise('189 Fitzgerald Avenue', arepas_menu)
+arepas_place = Franchise('189 Fitzgerald Avenue', [arepas_menu, kids])
 
 
 arepas = Business("Take a' Arepa", [arepas_place])
 
-print(arepas.franchises[0].menus)
+print("Arepas information : ", arepas.franchises[0].menus[0])
+
+
+print(arepas_menu.print_menu())
+
+
+
 
